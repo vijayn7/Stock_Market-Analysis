@@ -200,3 +200,20 @@ sns.lineplot(x="year", y="Adj Close", data=DF , color = color)
 plt.grid()
 # displaying the plot
 plt.show()
+
+# Plot Adj close over months with variance shown
+plt.figure(figsize=(15, 3))
+color = "#f72585"
+color_t = "#ff5252"
+text_color = "#a70000"
+custom_palette = ["#0096c7"]
+
+plt.xticks(rotation=90, ha='right', color=text_color)
+plt.yticks(rotation=0, ha='right', color=text_color)
+plt.xlabel('month ', color=color_t, fontsize=18)
+plt.ylabel('Adj Close' , color=color_t, fontsize=18)
+# Show the plot
+sns.lineplot(x="month", y="Adj Close", data=DF , color = color)
+plt.grid()
+# displaying the plot
+plt.show()
