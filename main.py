@@ -54,4 +54,6 @@ df['month'] = df3
 
 #Seperate by month
 Df = df[['Index','date','year',"month","Open","High","Low", 'Close','Adj Close','Volume']]
-print(Df)
+
+#Round All Values To Integers
+Df = round(Df)
