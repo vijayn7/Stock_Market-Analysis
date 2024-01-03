@@ -60,4 +60,6 @@ Df = round(Df)
 
 #Isolate data with Index NYA
 FinalDf = Df[Df['Index'] == 'NYA']
-print(FinalDf.describe())
+
+#Remove Blank Data
+DF = FinalDf.dropna()
