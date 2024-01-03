@@ -217,3 +217,11 @@ sns.lineplot(x="month", y="Adj Close", data=DF , color = color)
 plt.grid()
 # displaying the plot
 plt.show()
+
+fig = go.Figure(data=[go.Candlestick(x=DF['year'],
+                open=DF['Open'],
+                high=DF['High'],
+                low=DF['Low'],
+                close=DF['Close'])])
+
+fig.show()
