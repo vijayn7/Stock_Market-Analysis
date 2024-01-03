@@ -63,3 +63,116 @@ FinalDf = Df[Df['Index'] == 'NYA']
 
 #Remove Blank Data
 DF = FinalDf.dropna()
+
+# Use a Graph to Look for Noise in Dataset
+# Relation between Adj Close & Open
+plt.figure(figsize=(5,3))
+color = "#ff0000"
+color_t = "#ff5252"
+text_color = "#a70000"
+custom_palette = ["#0096c7", "#f72585"]
+
+plt.scatter(DF['Open'],DF['Adj Close'] , color=color)
+plt.xticks(rotation=45, ha='right', color=text_color)
+plt.yticks(rotation=0, ha='right', color=text_color)
+plt.xlabel(' Open ', color=color_t, fontsize=18)
+plt.ylabel('Adj Close' , color=color_t, fontsize=18)
+plt.grid()
+# Show the plot
+plt.show()
+
+#Compensate for Noise
+OpenAdjCloseNoise1 = DF[(DF['Open'] >= 0) & (DF['Open'] <= 2000) & (DF['Adj Close'] >= 6000) & (DF['Adj Close'] <= 8000)]
+DF = DF.drop(OpenAdjCloseNoise1.index)
+OpenAdjCloseNoise1 = DF[(DF['Open'] >= 0) & (DF['Open'] <= 2000) & (DF['Adj Close'] >= 6000) & (DF['Adj Close'] <= 8000)]
+
+OpenAdjCloseNoise2 = DF[(DF['Open'] >= 4000) & (DF['Open'] <= 6000) & (DF['Adj Close'] >= 0) & (DF['Adj Close'] <= 2000)]
+DF = DF.drop(OpenAdjCloseNoise2.index)
+OpenAdjCloseNoise2 = DF[(DF['Open'] >= 4000) & (DF['Open'] <= 6000) & (DF['Adj Close'] >= 0) & (DF['Adj Close'] <= 2000)]
+
+#Plot After Noisy Data Removal
+plt.figure(figsize=(5, 3))
+color = "#ff0000"
+color_t = "#ff5252"
+text_color = "#a70000"
+custom_palette = ["#0096c7", "#f72585"]
+
+plt.scatter(DF['Open'],DF['Adj Close'] , color=color)
+plt.xticks(rotation=45, ha='right', color=text_color)
+plt.yticks(rotation=0, ha='right', color=text_color)
+plt.xlabel(' Open ', color=color_t, fontsize=18)
+plt.ylabel('Adj Close' , color=color_t, fontsize=18)
+plt.grid()
+# Show the plot
+plt.show()
+
+# Use a Graph to Look for Noise in Dataset
+# Relation between Adj Close & High
+plt.figure(figsize=(5,3))
+color = "#ff0000"
+color_t = "#ff5252"
+text_color = "#a70000"
+custom_palette = ["#0096c7", "#f72585"]
+
+plt.scatter(DF['High'],DF['Adj Close'] , color=color)
+plt.xticks(rotation=45, ha='right', color=text_color)
+plt.yticks(rotation=0, ha='right', color=text_color)
+plt.xlabel(' High ', color=color_t, fontsize=18)
+plt.ylabel('Adj Close' , color=color_t, fontsize=18)
+plt.grid()
+# Show the plot
+plt.show()
+
+HighAdjCloseNoise = DF[(DF['High'] >= 6000) & (DF['Adj Close'] <= 2500)]
+DF = DF.drop(HighAdjCloseNoise.index)
+HighAdjCloseNoise = DF[(DF['High'] >= 6000) & (DF['Adj Close'] <= 2500)]
+
+#Plot After Noisy Data Removal
+plt.figure(figsize=(5,3))
+color = "#ff0000"
+color_t = "#ff5252"
+text_color = "#a70000"
+custom_palette = ["#0096c7", "#f72585"]
+
+plt.scatter(DF['High'],DF['Adj Close'] , color=color)
+plt.xticks(rotation=45, ha='right', color=text_color)
+plt.yticks(rotation=0, ha='right', color=text_color)
+plt.xlabel(' High ', color=color_t, fontsize=18)
+plt.ylabel('Adj Close' , color=color_t, fontsize=18)
+plt.grid()
+# Show the plot
+plt.show()
+
+# Use a Graph to Look for Noise in Dataset
+# Relation between Adj Close & Low
+plt.figure(figsize=(5,3))
+color = "#ff0000"
+color_t = "#ff5252"
+text_color = "#a70000"
+custom_palette = ["#0096c7", "#f72585"]
+
+plt.scatter(DF['Low'],DF['Adj Close'] , color=color)
+plt.xticks(rotation=45, ha='right', color=text_color)
+plt.yticks(rotation=0, ha='right', color=text_color)
+plt.xlabel(' Low ', color=color_t, fontsize=18)
+plt.ylabel('Adj Close' , color=color_t, fontsize=18)
+plt.grid()
+# Show the plot
+plt.show()
+
+# Use a Graph to Look for Noise in Dataset
+# Relation between Adj Close & Close
+plt.figure(figsize=(5,3))
+color = "#ff0000"
+color_t = "#ff5252"
+text_color = "#a70000"
+custom_palette = ["#0096c7", "#f72585"]
+
+plt.scatter(DF['Close'],DF['Adj Close'] , color=color)
+plt.xticks(rotation=45, ha='right', color=text_color)
+plt.yticks(rotation=0, ha='right', color=text_color)
+plt.xlabel(' Close ', color=color_t, fontsize=18)
+plt.ylabel('Adj Close' , color=color_t, fontsize=18)
+plt.grid()
+# Show the plot
+plt.show()
