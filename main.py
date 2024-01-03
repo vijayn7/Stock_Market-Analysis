@@ -11,4 +11,9 @@ df = pd.DataFrame(data)
 info = df.info()
 describe = df.describe()
 
-print(describe)
+print(df)
+
+#Sort Data By date
+df['Date']=pd.to_datetime(df['Date'], utc=True)
+df['date'] = [d.date() for d in df['Date']]
+print(df)
