@@ -19,4 +19,39 @@ df1=pd.DataFrame(correct_date)
 df['date']=df1['date'].astype('datetime64[ns]')
 df2=df['date'].dt.year
 df['year']=df2.astype('string')
-print(df)
+
+df3=df['date'].dt.month
+month=[]
+for i in df3:
+    match i:
+        case 1:
+            month.append("January")
+        case 2:
+            month.append("February")
+        case 3:
+            month.append("March")
+        case 4:
+            month.append("April")
+        case 5:
+            month.append("May")
+        case 6:
+            month.append("June")
+        case 7:
+            month.append("July")
+        case 8:
+            month.append("August")
+        case 9:
+            month.append("September")
+        case 10:
+            month.append("October")
+        case 11:
+            month.append("November")
+        case 12:
+            month.append("December")
+
+df3=pd.DataFrame(month)
+df['month'] = df3
+
+#Seperate by month
+Df = df[['Index','date','year',"month","Open","High","Low", 'Close','Adj Close','Volume']]
+print(Df)
