@@ -57,3 +57,7 @@ Df = df[['Index','date','year',"month","Open","High","Low", 'Close','Adj Close',
 
 #Round All Values To Integers
 Df = round(Df)
+
+#Isolate data with Index NYA
+FinalDf = Df[Df['Index'] == 'NYA']
+print(FinalDf.describe())
