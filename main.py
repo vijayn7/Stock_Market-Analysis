@@ -176,3 +176,27 @@ plt.ylabel('Adj Close' , color=color_t, fontsize=18)
 plt.grid()
 # Show the plot
 plt.show()
+
+# Create a Heat Map to look for other direct relationships
+DF1 = DF[["Open","High","Low", 'Close','Adj Close','Volume']]
+plt.figure(figsize=(8, 5))
+hm = sns.heatmap(DF1.corr(), annot=True)
+# Show the Heat Map
+plt.show()
+
+# Plot Adj close over years
+plt.figure(figsize=(15, 3))
+color = "#f72585"
+color_t = "#ff5252"
+text_color = "#a70000"
+custom_palette = ["#0096c7"]
+
+plt.xticks(rotation=90, ha='right', color=text_color)
+plt.yticks(rotation=0, ha='right', color=text_color)
+plt.xlabel('year ', color=color_t, fontsize=18)
+plt.ylabel('Adj Close' , color=color_t, fontsize=18)
+# Show the plot
+sns.lineplot(x="year", y="Adj Close", data=DF , color = color)
+plt.grid()
+# displaying the plot
+plt.show()
