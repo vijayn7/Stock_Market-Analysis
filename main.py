@@ -8,4 +8,7 @@ import plotly.graph_objects as go
 
 data = pd.read_csv("Market.csv")
 df = pd.DataFrame(data)
-print(df)
+info = df.info()
+describe = df.describe()
+
+print(describe)
